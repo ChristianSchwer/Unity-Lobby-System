@@ -22,7 +22,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     #region Public Fields
 
     public InputField nickName;
-    public SwitchScene switchScene;
 
     #endregion
 
@@ -72,19 +71,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("NetworkManager: OnJoinedLobby() mit Lobby verbunden.");
-        switchScene.NextScene("LobbyScene");
+        PhotonNetwork.LoadLevel(2);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log("NetworkManager: OnDisconnected() Reason " + cause.ToString());
     }
-
-    #endregion
-
-    #region Private Methods
-
-
 
     #endregion
 }
